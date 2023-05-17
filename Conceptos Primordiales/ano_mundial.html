@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+
+<h1>
+	Años de mundial de la FIFA
+</h1>
+
+<script type="text/javascript">
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase);
+		SaltoLinea(2);
+	}
+
+	var ano = 1930;
+	var limite = parseInt(prompt("Ingrese el año limite para calcular"));
+
+	while(ano<=limite){
+
+		if (ano<1942 || ano>1946) {
+			imprimir("Hubo mundial de la FIFA en el año: "+ano);
+		}
+		else{
+			imprimir("En el año "+ano+" no hubo mundial de la FIFA");
+		}
+		ano = ano+4;
+	}
+	alert("Fin");
+</script>

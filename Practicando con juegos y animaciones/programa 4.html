@@ -1,0 +1,56 @@
+<canvas width="800" height="400"> </canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");        
+    pincel.fillStyle = "black";
+    pincel.fillRect(0,0,800,400); 
+
+    var x = 0
+    var sentido = 1;
+    var colorAleatorio= "white";
+
+    function disenharCircunferencia(x,y,radio){
+        
+        pincel.fillStyle = colorAleatorio;
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+    }    
+
+    function limpiarPantalla(){
+
+        pincel.fillStyle = "black";
+        pincel.fillRect(x - 30, 20 - 30, 30 * 2, 30 * 2);
+
+
+    }
+
+
+    function actualizarPantalla(){
+
+        limpiarPantalla();
+        if(x > 800){
+            sentido = -1;
+            colorAleatorio = generarColorAleatorio();
+        }else if(x < 0){
+            sentido = 1;
+            colorAleatorio = generarColorAleatorio();
+        }
+
+        disenharCircunferencia(x,30,20);
+            x = x + sentido;
+    }
+
+    function generarColorAleatorio() {
+
+      var rojo = Math.floor(Math.random() * 256);
+      var verde = Math.floor(Math.random() * 256);
+      var azul = Math.floor(Math.random() * 256);
+
+      return "rgb(" + rojo + ", " + verde + ", " + azul + ")";
+
+}
+    setInterval(actualizarPantalla,1);
+
+</script> 

@@ -1,0 +1,60 @@
+ <canvas width="600" height="400"></canvas>
+
+<script>
+
+	var serie2009 = [6, 47, 41, 3, 3];
+    var serie2019 = [81, 9, 3, 3, 4];
+    var colores = ["blue","green","yellow", "red","gray"];
+
+    const base=50;
+
+    /*function dibujarRectangulo(x, y, base, altura, color) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle=color;
+        pincel.fillRect(x,y, base, altura);
+        pincel.strokeStyle="black";
+        pincel.strokeRect(x,y, base, altura);
+    }*/
+
+    function dibujarBarra(x,y,base,altura,color,ano){
+		var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        for (var i = 0; i < colores.length; i++) {
+        	
+        	
+
+        	pincel.fillStyle=color[i];
+	        pincel.fillRect(x,y, base, altura[i]);
+	        pincel.strokeStyle="black";
+	        pincel.strokeRect(x,y, base, altura[i]);
+	        console.log(x,y,base,altura,color,ano)
+
+	        y=y+altura[i];
+        }
+
+        
+    }
+
+    function escribirTexto(x , y, texto) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.font="15px Georgia";
+        pincel.fillStyle="black";
+        pincel.fillText(texto, x, y);    
+    }
+
+    dibujarBarra(50, 50, base, serie2009, colores, "2009");
+    dibujarBarra(150, 50, base, serie2019, colores, "2019");
+
+    escribirTexto(58,40, "2009");
+    escribirTexto(158,40, "2019");
+    escribirTexto(78,15, "Antonio Guerrero");
+
+
+    //Aquí viene el texto faltante
+    //dibujarRectangulo(100,100,200,300,"red");
+</script>

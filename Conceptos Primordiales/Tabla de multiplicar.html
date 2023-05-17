@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+
+<h1>
+	Calcular una tabla de multiplicar
+</h1>
+
+<script type="text/javascript">
+
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase+", ");
+		//SaltoLinea(4);
+	}
+
+	var multiplo = parseInt(prompt("De qué número deseas conocer los multiplos: "));
+	var limite = parseInt(prompt("Ingresa la cantidad de multiplos que deseas conocer: "));
+
+	for (var i = 1; i <= limite; i++) {
+		imprimir(multiplo*i);
+	}
+
+</script>

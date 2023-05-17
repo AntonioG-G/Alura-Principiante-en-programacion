@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+
+<h1>
+	Estrellas en pirámide
+</h1>
+
+<script type="text/javascript">
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase);
+		SaltoLinea(1);
+	}
+
+	var cantidadA=1;
+	var asterisco="*";
+	
+	var niveles=parseInt(prompt("cuántos niveles tendrá la pirámide"));
+	var cantidadE=niveles-2;
+
+	for (var i = 1; i <= niveles; i++) {
+		document.write("&nbsp;".repeat(cantidadE) + asterisco.repeat(cantidadA));
+		cantidadE--;
+		cantidadA=cantidadA+2;
+		SaltoLinea(1);
+	}
+
+</script>

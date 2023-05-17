@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+
+<h1>
+	Mostrar todos los numeros pares del 1 al 100
+</h1>
+
+<script type="text/javascript">
+
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase);
+		SaltoLinea(2);
+	}
+
+	var limite = 100;
+	var num = 1;
+	var par = false;
+
+	while(num<=limite){
+		if(par==false){
+			num++;
+			par=true;
+		}
+		if(par==true){
+			imprimir(num);	
+			num++;
+			par=false;
+		}
+		
+		
+	}
+	
+	imprimir("fin");
+
+</script>

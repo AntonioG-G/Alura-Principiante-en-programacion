@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+
+<h1>
+	Juego de adivinanza
+</h1>
+
+<script type="text/javascript">
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase);
+		SaltoLinea(2);
+	}
+
+	var numeroPensado = Math.round(Math.random()*10);
+	var intentos = 3;
+	
+
+	while(intentos>0){
+
+		var numeroLanzado = parseInt(prompt("Inserte un numero del 1 al 10: "));
+
+		if (numeroPensado==numeroLanzado) {
+
+		imprimir("Adivinaste, si era: "+ numeroPensado);
+		break;
+
+		}
+
+		else{
+		alert("Erraste");
+		intentos--;
+
+		}
+	}
+	if(intentos==0){
+
+		imprimir("Estas  bien pendejo el número era: "+ numeroPensado);	
+		
+	}	
+	
+	
+
+</script>

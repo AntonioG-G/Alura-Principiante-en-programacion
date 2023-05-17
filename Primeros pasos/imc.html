@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+
+<h1>
+	Calculadora de IMC
+</h1>
+
+<script type="text/javascript">
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase);
+		SaltoLinea(2);
+	}
+
+	function calculo(peso,altura,nombre){
+		imc = peso/(Math.pow(altura,2));
+		imprimir("El IMC de "+ nombre +" es: "+ imc);
+		return imc;
+	}
+
+	function promedio(a,s){
+		promedioimc = (a+s)/2;
+		return ("El promedio de ambas personas es: "+ promedioimc);
+	}
+
+	var peso = prompt("Informa tu peso:");
+	var altura = prompt("Informa tu altura:");
+	var nom = prompt("Informa tu peso:");
+
+	var imcF = calculo(peso,altura,nom);
+	
+</script>

@@ -1,0 +1,91 @@
+<canvas width="800" height="800"> </canvas>
+
+<script type="text/javascript">
+
+	var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");        
+    pincel.fillStyle = "black";
+    pincel.fillRect(0,0,800,800); 
+
+    var intervalo=0;
+	while(intervalo<1 || intervalo>10){
+
+		intervalo = parseInt(prompt("Ingresa el nivel de dificultad del 1 al 10"));
+		if(intervalo<1 || intervalo>10){
+
+			alert("No es una entrada válida");
+
+		}
+
+	}
+
+	var xCG = 0;
+	var yCG = 0;
+
+	function dificultad(intervalo){
+
+		var dif = 1650 - (intervalo - 1) * 110;
+		setInterval(actualizar,dif);
+		console.log(dif);
+
+	}
+	function disenarCirculos(radio){
+
+		let x = Math.random() * (800 - radio*2) + radio;
+		let y = Math.random() * (800 - radio*2) + radio;
+
+		xCG = x;
+		yCG = y;
+
+		pincel.fillStyle = "Red"
+		pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+
+		pincel.fillStyle = "White"
+		pincel.beginPath();
+        pincel.arc(x,y,radio*0.66,0,2*Math.PI);
+        pincel.fill();
+
+        pincel.fillStyle = "Red"
+		pincel.beginPath();
+        pincel.arc(x,y,radio*0.3,0,2*Math.PI);
+        pincel.fill();
+
+        return x,y;
+	}
+
+	function actualizar(){
+
+		limpiar();
+		disenarCirculos(40);
+
+	}
+
+	function limpiar(){
+
+		pincel.fillStyle = "black";
+	    pincel.fillRect(0,0,800,800);
+    	
+	}
+
+	function comprobarClic(evento){
+		console.log("llama funcion")
+		let xClic = evento.clientX - pantalla.offsetLeft;
+		let yClic = evento.clientY - pantalla.offsetTop;
+		let radioCG = 40; // posición x del centro del círculo mayor
+		
+		// Comprobar si el clic está dentro del círculo mayor
+		if (Math.sqrt(Math.pow(xClic-xCG,2) + Math.pow(yClic-yCG,2)) <= radioCG){
+			alert("¡Felicidades! Acertaste en el círculo mayor.");
+
+			actualizar();
+		}
+	}
+
+	pantalla.onclick = function(evento){
+		comprobarClic(evento);
+	}
+
+	dificultad (intervalo);
+</script>

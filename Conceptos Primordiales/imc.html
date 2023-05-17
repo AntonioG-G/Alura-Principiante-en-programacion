@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+
+<h1>
+	Calculadora de IMC
+</h1>
+
+<script type="text/javascript">
+	function SaltoLinea(veces){
+		var salto = "<br>"
+		document.write(salto.repeat(veces));
+	}
+
+	function imprimir(frase){
+		document.write(frase);
+		SaltoLinea(2);
+	}
+
+	function calculo(peso,altura,nombre){
+		imc = peso/(Math.pow(altura,2));
+		imprimir("El IMC de "+ nombre +" es: "+ imc);
+		return imc;
+	}
+
+	var peso = prompt("Informa tu peso:");
+	var altura = prompt("Informa tu altura:");
+	var nom = prompt("Informa tu nombre:");
+
+	var imcF = calculo(peso,altura,nom);
+	
+	if (imcF<18.5) {
+		imprimir("abajo del peso recomendado");
+	}
+
+	if (imcF>=18.5 && imcF <=24.9) {
+		imprimir("está en el peso recomendado");
+	}
+
+	if (imcF>24.9 && imcF <= 29.9) {
+		imprimir("Sobrepeso");
+	}
+
+	if (imcF>30) {
+		imprimir("Obeso");
+	}	
+</script>

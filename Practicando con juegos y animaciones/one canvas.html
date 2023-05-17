@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+
+<title>programa 1</title>
+<h1>Uso de canvas con JS</h1>
+<canvas width="1200" height="700">
+	
+</canvas>
+
+<script>
+	
+	var pantalla = document.querySelector("canvas");
+	var letras = pantalla.getContext("2d");
+	var figuras =pantalla.getContext("2d");
+	
+
+	rectangulos(figuras);
+	txt(letras);
+	
+	function rectangulos(cuadrados){
+	
+		//cuadro naranja
+		cuadrados.fillStyle = "rgb(220,139,64)";
+		cuadrados.fillRect(150,0,50,34);
+
+		//cuadro azul
+		cuadrados.fillStyle = "rgb(130,177,179)";
+		cuadrados.fillRect(100,44,100,34);
+
+		//cuadro verde
+		cuadrados.fillStyle = "rgb(129, 164, 120)";
+		cuadrados.fillRect(50,88,150,34);
+	}
+
+	function txt(texto){
+
+		texto.font = "68px arial"; //atributo
+		texto.strokeText("O N E",210,50);
+
+		texto.font = "40px arial"; //funcion
+		texto.strokeText("Oracle Next",210,95);
+		texto.strokeText("Education",210,136);
+
+	}
+	
+
+</script>
